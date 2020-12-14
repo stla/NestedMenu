@@ -4,7 +4,14 @@
 \alias{NestedMenu}
 \title{<Add Title>}
 \usage{
-NestedMenu(message, width = NULL, height = NULL, elementId = NULL)
+NestedMenu(
+  label,
+  items,
+  trigger = "left",
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \description{
 <Add Description>

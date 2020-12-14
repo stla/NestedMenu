@@ -11,30 +11,18 @@ HTMLWidgets.widget({
         // TODO: code to render the widget, e.g.
         //el.innerText = x.message;
 
-        $button = $(".NestedMenu button");
+        $button = $(".NestedMenu span");
         $button.text(x.label);
 
         $.contextMenu({
-          selector: ".NestedMenu button",
+          selector: ".NestedMenu span",
+          trigger: x.trigger,
           callback: function (key, options) {
             if(HTMLWidgets.shinyMode){
               Shiny.setInputValue(el.id, key, {priority: "event"});
             }
           },
-          items: {
-            edit: { name: "Edit", icon: "edit" },
-            cut: { name: "Cut", icon: "cut" },
-            copy: { name: "Copy", icon: "copy" },
-            paste: { name: "Paste", icon: "paste" },
-            delete: { name: "Delete", icon: "delete" },
-            sep1: "---------",
-            quit: {
-              name: "Quit",
-              icon: function () {
-                return "context-menu-icon context-menu-icon-quit";
-              }
-            }
-          }
+          items: x.items
         });
       },
 

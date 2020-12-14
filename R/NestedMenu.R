@@ -6,13 +6,15 @@
 #'
 #' @export
 NestedMenu <- function(
-  label = "Menu",
+  label, items, trigger = "left",
   width = NULL, height = NULL, elementId = NULL
 ) {
 
   # forward options using x
   x = list(
-    label = label
+    label = label,
+    trigger = match.arg(trigger, c("left", "right", "hover")),
+    items = items
   )
 
   # create widget
@@ -32,7 +34,7 @@ NestedMenu <- function(
 widget_html.NestedMenu <- function(id, style, class, ...){
   tags$div(
     id = id, class = class, style = style,
-    tags$button("Menu")
+    tags$span(class = "btn btn-primary")
   )
 }
 
