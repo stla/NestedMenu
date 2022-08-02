@@ -1,3 +1,5 @@
+detach(package:NestedMenu, unload=TRUE)
+
 library(NestedMenu)
 library(shiny)
 
@@ -7,6 +9,7 @@ cities <- list(
     items = list(
       france = list(
         name = "France",
+        icon = "fa-cheese",
         items = list(
           paris = list(name = "Paris"),
           lyon = list(name = "Lyon")
@@ -14,8 +17,9 @@ cities <- list(
       ),
       italy = list(
         name = "Italy",
+        icon = "fa-pizza-slice",
         items = list(
-          roma = list(name = "Roma"),
+          roma = list(name = "Roma", icon = "glyphicon glyphicon-plus"),
           milano = list(name = "Milano")
         )
       )
@@ -29,6 +33,7 @@ cities <- list(
         items = list(
           usa = list(
             name = "USA",
+		icon = "fa-flag-usa",
             items = list(
               chicago = list(name = "Chicago"),
               newyork = list(name = "New York")
@@ -36,6 +41,7 @@ cities <- list(
           ),
           canada = list(
             name = "Canada",
+            icon = "fa-canadian-maple-leaf",
             items = list(
               ottawa = list(name = "Ottawa"),
               toronto = list(name = "Toronto")
@@ -48,13 +54,15 @@ cities <- list(
         items = list(
           brazil = list(
             name = "Brazil",
+            icon = "fa-lemon",
             items = list(
               brasilia = list(name = "Brasilia"),
-              saopolo = list(name = "Sâo Polo")
+              saopolo = list(name = "Sao Polo")
             )
           ),
           mexico = list(
             name = "Mexico",
+            icon = "fa-hat-cowboy",
             items = list(
               mexicocity = list(name = "Mexico City"),
               tijuana = list(name = "Tijuana")

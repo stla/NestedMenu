@@ -3,6 +3,10 @@
 #' <Add Description>
 #'
 #' @importFrom htmlwidgets createWidget
+#' @importFrom htmltools htmlDependency
+#' @importFrom fontawesome fa_html_dependency
+#' @importFrom shiny bootstrapLib
+#' @importFrom jquerylib jquery_core
 #'
 #' @export
 NestedMenu <- function(
@@ -11,20 +15,25 @@ NestedMenu <- function(
 ) {
 
   # forward options using x
-  x = list(
+  x <- list(
     label = label,
     trigger = match.arg(trigger, c("left", "right", "hover")),
     items = items
   )
 
   # create widget
-  htmlwidgets::createWidget(
-    name = 'NestedMenu',
+  createWidget(
+    name = "NestedMenu",
     x,
     width = width,
     height = height,
-    package = 'NestedMenu',
-    elementId = elementId
+    package = "NestedMenu",
+    elementId = elementId,
+    dependencies = list(
+      jquery_core(major_version = 3, minified = TRUE),
+      bootstrapLib(theme = NULL),
+      fa_html_dependency()
+    )
   )
 }
 
@@ -32,9 +41,14 @@ NestedMenu <- function(
 #' @importFrom htmltools tags tagList
 #' @noRd
 widget_html.NestedMenu <- function(id, style, class, ...){
-  tags$div(
-    id = id, class = class, style = style,
-    tags$span(class = "btn btn-primary")
+  tagList(
+    tags$style("
+      li.context-menu-icon.fa span {font-weight: normal}
+    "),
+    tags$div(
+      id = id, class = class, style = style,
+      tags$span(class = "btn btn-primary")
+    )
   )
 }
 
