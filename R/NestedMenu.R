@@ -4,7 +4,7 @@
 #' 
 #' @param label the label of the root button
 #' @param items list of items for the nested menu; see the
-#'   \link[NestedMenu-shiny]{Shiny example}
+#'   \link[=NestedMenu-shiny]{Shiny example}
 #' @param trigger the way the menu is triggered: \code{"left"} to trigger
 #'   on a left-click, \code{"right"} to trigger on a right-click,
 #'   \code{"hover"} to trigger on hover
@@ -122,7 +122,7 @@ widget_html.NestedMenu <- function(id, style, class, ...){
 #'         items = list(
 #'           usa = list(
 #'             name = "USA",
-#' 		icon = "fa-flag-usa",
+#' 		   icon = "fa-flag-usa",
 #'             items = list(
 #'               chicago = list(name = "Chicago"),
 #'               newyork = list(name = "New York")

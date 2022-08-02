@@ -74,7 +74,7 @@ cities <- list(
         items = list(
           usa = list(
             name = "USA",
-		icon = "fa-flag-usa",
+		   icon = "fa-flag-usa",
             items = list(
               chicago = list(name = "Chicago"),
               newyork = list(name = "New York")

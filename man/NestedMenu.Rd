@@ -10,7 +10,7 @@ NestedMenu(label, items, trigger = "left", elementId = NULL)
 \item{label}{the label of the root button}
 
 \item{items}{list of items for the nested menu; see the
-\link[NestedMenu-shiny]{Shiny example}}
+\link[=NestedMenu-shiny]{Shiny example}}
 
 \item{trigger}{the way the menu is triggered: \code{"left"} to trigger
 on a left-click, \code{"right"} to trigger on a right-click,
