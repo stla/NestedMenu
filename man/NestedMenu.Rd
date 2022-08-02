@@ -2,17 +2,22 @@
 % Please edit documentation in R/NestedMenu.R
 \name{NestedMenu}
 \alias{NestedMenu}
-\title{<Add Title>}
+\title{'Nested menu' widget}
 \usage{
-NestedMenu(
-  label,
-  items,
-  trigger = "left",
-  width = NULL,
-  height = NULL,
-  elementId = NULL
-)
+NestedMenu(label, items, trigger = "left", elementId = NULL)
+}
+\arguments{
+\item{label}{the label of the root button}
+
+\item{items}{list of items for the nested menu; see the
+\link[NestedMenu-shiny]{Shiny example}}
+
+\item{trigger}{the way the menu is triggered: \code{"left"} to trigger
+on a left-click, \code{"right"} to trigger on a right-click,
+\code{"hover"} to trigger on hover}
+
+\item{elementId}{a HTML id; this is usually useless}
 }
 \description{
-<Add Description>
+'Nested menu' HTML widget.
 }

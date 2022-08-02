@@ -4,27 +4,139 @@
 \alias{NestedMenu-shiny}
 \alias{NestedMenuOutput}
 \alias{renderNestedMenu}
-\title{Shiny bindings for NestedMenu}
+\title{Shiny bindings for 'NestedMenu'}
 \usage{
-NestedMenuOutput(outputId, width = "100\%", height = "400px")
+NestedMenuOutput(outputId, width = "100\%", height = "auto")
 
 renderNestedMenu(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{outputId}{output variable to read from}
 
-\item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
-\code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-string and have \code{'px'} appended.}
+\item{width, height}{dimensions; must be valid CSS measurements
+(like \code{"100\%"}, \code{"400px"}, \code{"auto"})}
 
-\item{expr}{An expression that generates a NestedMenu}
+\item{expr}{an expression that generates a nested menu
+(with \code{\link{NestedMenu}})}
 
-\item{env}{The environment in which to evaluate \code{expr}.}
+\item{env}{the environment in which to evaluate \code{expr}.}
 
-\item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
-is useful if you want to save an expression in a variable.}
+\item{quoted}{Boolean, whether \code{expr} is a quoted expression}
+}
+\value{
+\code{NestedMenuOutput} returns an output element that can be
+  included in a Shiny UI definition, and \code{renderNestedMenu} returns
+  a \code{shiny.render.function} object that can be included in a Shiny
+  server definition.
 }
 \description{
-Output and render functions for using NestedMenu within Shiny
-applications and interactive Rmd documents.
+Output and render functions for using 'NestedMenu' 
+  within Shiny applications and interactive Rmd documents.
+}
+\section{Shiny value}{
+
+  If the \code{outputId} is called \code{"ID"} for example, then the
+  value of the clicked leaf item is available in the Shiny server in
+  the reactive variable \code{input[["ID"]]}.
+}
+
+\examples{
+library(NestedMenu)
+library(shiny)
+
+cities <- list(
+  europe = list(
+    name = "Europe",
+    items = list(
+      france = list(
+        name = "France",
+        icon = "fa-cheese",
+        items = list(
+          paris = list(name = "Paris"),
+          lyon = list(name = "Lyon")
+        )
+      ),
+      italy = list(
+        name = "Italy",
+        icon = "fa-pizza-slice",
+        items = list(
+          roma = list(name = "Roma"),
+          milano = list(name = "Milano")
+        )
+      )
+    )
+  ),
+  america = list(
+    name = "America",
+    items = list(
+      namerica = list(
+        name = "North America",
+        items = list(
+          usa = list(
+            name = "USA",
+		icon = "fa-flag-usa",
+            items = list(
+              chicago = list(name = "Chicago"),
+              newyork = list(name = "New York")
+            )
+          ),
+          canada = list(
+            name = "Canada",
+            icon = "fa-canadian-maple-leaf",
+            items = list(
+              ottawa = list(name = "Ottawa"),
+              toronto = list(name = "Toronto")
+            )
+          )
+        )
+      ),
+      samerica = list(
+        name = "South America",
+        items = list(
+          brazil = list(
+            name = "Brazil",
+            icon = "fa-lemon",
+            items = list(
+              brasilia = list(name = "Brasilia"),
+              saopolo = list(name = "Sao Polo")
+            )
+          ),
+          mexico = list(
+            name = "Mexico",
+            icon = "fa-hat-cowboy",
+            items = list(
+              mexicocity = list(name = "Mexico City"),
+              tijuana = list(name = "Tijuana")
+            )
+          )
+        )
+      )
+    )
+  )
+)
+
+ui <- fluidPage(
+  br(),
+  NestedMenuOutput("menu", height = "auto"),
+  br(),
+  verbatimTextOutput("clicked")
+)
+
+server <- function(input, output, session){
+
+  output[["menu"]] <- renderNestedMenu({
+    NestedMenu(
+      "Cities", items = cities
+    )
+  })
+
+  output[["clicked"]] <- renderPrint({
+    input[["menu"]]
+  })
+
+}
+
+if(interactive()){
+  shinyApp(ui, server)
+}
 }
