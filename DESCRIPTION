@@ -1,13 +1,19 @@
-Package: NestedMenu
 Type: Package
-Title: What the Package Does (Title Case)
+Package: NestedMenu
+Title: A Nested Menu Widget for 'Shiny' Applications
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    person("Stéphane", "Laurent", , "laurent_step@outlook.fr", role = c("aut", "cre"))
+Description: Provides a nested menu widget (multi-level dropdown) for
+    usage in 'Shiny' applications.
+License: GPL-3
+URL: https://github.com/stla/NestedMenu
+BugReports: https://github.com/stla/NestedMenu/issues
+Imports: 
+    fontawesome,
+    htmltools,
+    htmlwidgets,
+    jquerylib,
+    shiny
 Encoding: UTF-8
-LazyData: true
-Imports: htmlwidgets, htmltools, fontawesome, shiny, jquerylib
 RoxygenNote: 7.2.1
