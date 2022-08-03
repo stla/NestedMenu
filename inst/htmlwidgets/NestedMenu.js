@@ -4,14 +4,15 @@ HTMLWidgets.widget({
   type: "output",
 
   factory: function (el, width, height) {
-    // TODO: define shared variables for this instance
 
     return {
       renderValue: function (x) {
-        // TODO: code to render the widget, e.g.
-        //el.innerText = x.message;
 
-        $button = $(".NestedMenu span");
+        $button = $(".NestedMenu span.NM");
+        $button.addClass("btn-" + x.style);
+        if(x.size !== null){
+          $button.addClass("btn-" + x.size);
+        }
         $button.text(x.label);
 
         $.contextMenu({

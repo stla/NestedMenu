@@ -85,7 +85,7 @@ server <- function(input, output, session){
 
   output[["menu"]] <- renderNestedMenu({
     NestedMenu(
-      "Cities", items = cities
+      "Cities", items = cities, style = "danger", size = "lg"
     )
   })
 

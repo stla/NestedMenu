@@ -8,6 +8,11 @@
 #' @param trigger the way the menu is triggered: \code{"left"} to trigger
 #'   on a left-click, \code{"right"} to trigger on a right-click,
 #'   \code{"hover"} to trigger on hover
+#' @param style a Bootstrap style for the root button: \code{"primary"}, 
+#'   \code{"info"}, \code{"success"}, \code{"warning"} or \code{"danger"}
+#' @param size size the root button: \code{NULL} (normal), \code{"lg"} (large),
+#'   \code{"sm"} (small) or \code{"xs"} (extra-small) 
+#'   \code{"info"}, \code{"success"}, \code{"warning"} or \code{"danger"}
 #' @param elementId a HTML id; this is usually useless
 #'
 #' @importFrom htmlwidgets createWidget
@@ -18,14 +23,19 @@
 #'
 #' @export
 NestedMenu <- function(
-  label, items, trigger = "left", elementId = NULL
+  label, items, trigger = "left", style = "primary", size = NULL, 
+  elementId = NULL
 ) {
 
   # forward options using x
   x <- list(
-    label = label,
+    label   = label,
     trigger = match.arg(trigger, c("left", "right", "hover")),
-    items = items
+    items   = items,
+    style   = match.arg(style,
+      c("primary", "info", "success", "warning", "danger")
+    ),
+    size    = if(!is.null(size)) match.arg(size, c("lg", "sm", "xs"))
   )
 
   # create widget
@@ -54,7 +64,7 @@ widget_html.NestedMenu <- function(id, style, class, ...){
     "),
     tags$div(
       id = id, class = class, style = style,
-      tags$span(class = "btn btn-primary")
+      tags$span(class = "NM btn")
     )
   )
 }
