@@ -3,3 +3,5 @@
 ^inst/essais$
 ^\.github$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
+^inst/screenshots$
