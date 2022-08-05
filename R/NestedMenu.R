@@ -1,19 +1,20 @@
 #' @title 'Nested menu' widget
 #'
 #' @description 'Nested menu' HTML widget.
-#' 
+#'
 #' @param label the label of the root button
 #' @param items list of items for the nested menu; see the
 #'   \link[=NestedMenu-shiny]{Shiny example}
 #' @param trigger the way the menu is triggered: \code{"left"} to trigger
 #'   on a left-click, \code{"right"} to trigger on a right-click,
 #'   \code{"hover"} to trigger on hover
-#' @param style a Bootstrap style for the root button: \code{"primary"}, 
+#' @param style a Bootstrap style for the root button: \code{"primary"},
 #'   \code{"info"}, \code{"success"}, \code{"warning"} or \code{"danger"}
-#' @param size size the root button: \code{NULL} (normal), \code{"lg"} (large),
-#'   \code{"sm"} (small) or \code{"xs"} (extra-small) 
-#'   \code{"info"}, \code{"success"}, \code{"warning"} or \code{"danger"}
+#' @param size size of the root button: \code{NULL} (normal), \code{"lg"}
+#'   (large), \code{"sm"} (small) or \code{"xs"} (extra-small)
 #' @param elementId a HTML id; this is usually useless
+#'
+#' @return A \code{htmlwidget} object.
 #'
 #' @importFrom htmlwidgets createWidget
 #' @importFrom htmltools htmlDependency
@@ -23,7 +24,7 @@
 #'
 #' @export
 NestedMenu <- function(
-  label, items, trigger = "left", style = "primary", size = NULL, 
+  label, items, trigger = "left", style = "primary", size = NULL,
   elementId = NULL
 ) {
 
@@ -71,7 +72,7 @@ widget_html.NestedMenu <- function(id, style, class, ...){
 
 #' @title Shiny bindings for 'NestedMenu'
 #'
-#' @description Output and render functions for using 'NestedMenu' 
+#' @description Output and render functions for using 'NestedMenu'
 #'   within Shiny applications and interactive Rmd documents.
 #'
 #' @param outputId output variable to read from

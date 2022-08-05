@@ -23,14 +23,16 @@ NestedMenu(
 on a left-click, \code{"right"} to trigger on a right-click,
 \code{"hover"} to trigger on hover}
 
-\item{style}{a Bootstrap style for the root button: \code{"primary"}, 
+\item{style}{a Bootstrap style for the root button: \code{"primary"},
 \code{"info"}, \code{"success"}, \code{"warning"} or \code{"danger"}}
 
-\item{size}{size the root button: \code{NULL} (normal), \code{"lg"} (large),
-\code{"sm"} (small) or \code{"xs"} (extra-small) 
-\code{"info"}, \code{"success"}, \code{"warning"} or \code{"danger"}}
+\item{size}{size of the root button: \code{NULL} (normal), \code{"lg"}
+(large), \code{"sm"} (small) or \code{"xs"} (extra-small)}
 
 \item{elementId}{a HTML id; this is usually useless}
+}
+\value{
+A \code{htmlwidget} object.
 }
 \description{
 'Nested menu' HTML widget.

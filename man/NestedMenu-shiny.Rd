@@ -30,7 +30,7 @@ renderNestedMenu(expr, env = parent.frame(), quoted = FALSE)
   server definition.
 }
 \description{
-Output and render functions for using 'NestedMenu' 
+Output and render functions for using 'NestedMenu'
   within Shiny applications and interactive Rmd documents.
 }
 \section{Shiny value}{
