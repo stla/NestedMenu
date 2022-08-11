@@ -4,8 +4,9 @@ Title: A Nested Menu Widget for 'Shiny' Applications
 Version: 0.1.0
 Authors@R: 
     person("Stéphane", "Laurent", , "laurent_step@outlook.fr", role = c("aut", "cre"))
-Description: Provides a nested menu widget (multi-level dropdown) for
-    usage in 'Shiny' applications.
+Description: Provides a nested menu widget for usage in 'Shiny'
+    applications. This is useful for hierarchical choices (e.g. continent,
+    country, city).
 License: GPL-3
 URL: https://github.com/stla/NestedMenu
 BugReports: https://github.com/stla/NestedMenu/issues
