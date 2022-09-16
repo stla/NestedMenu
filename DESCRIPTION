@@ -1,9 +1,12 @@
 Type: Package
 Package: NestedMenu
 Title: A Nested Menu Widget for 'Shiny' Applications
-Version: 0.1.0.9000
+Version: 0.2.0
 Authors@R: 
-    person("Stéphane", "Laurent", , "laurent_step@outlook.fr", role = c("aut", "cre"))
+    c(
+      person("Stéphane", "Laurent", , "laurent_step@outlook.fr", role = c("aut", "cre")),
+      person("Björn", "Brala", role = "cph", comment = "'jQuery contextMenu' library")
+    )
 Description: Provides a nested menu widget for usage in 'Shiny'
     applications. This is useful for hierarchical choices (e.g. continent,
     country, city).
