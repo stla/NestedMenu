@@ -1,7 +1,7 @@
 Type: Package
 Package: NestedMenu
 Title: A Nested Menu Widget for 'Shiny' Applications
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person("Stéphane", "Laurent", , "laurent_step@outlook.fr", role = c("aut", "cre"))
 Description: Provides a nested menu widget for usage in 'Shiny'

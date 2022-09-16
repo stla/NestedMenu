@@ -8,7 +8,7 @@ HTMLWidgets.widget({
     return {
       renderValue: function (x) {
 
-        $button = $(".NestedMenu span.NM");
+        $button = $(".NestedMenu span.NM-" + el.id);
         $button.addClass("btn-" + x.style);
         if(x.size !== null){
           $button.addClass("btn-" + x.size);
@@ -16,7 +16,7 @@ HTMLWidgets.widget({
         $button.text(x.label);
 
         $.contextMenu({
-          selector: ".NestedMenu span",
+          selector: ".NestedMenu span.NM-" + el.id,
           trigger: x.trigger,
           callback: function (key, options) {
             if(HTMLWidgets.shinyMode){

@@ -65,7 +65,7 @@ widget_html.NestedMenu <- function(id, style, class, ...){
     "),
     tags$div(
       id = id, class = class, style = style,
-      tags$span(class = "NM btn")
+      tags$span(class = sprintf("NM-%s btn", id))
     )
   )
 }
@@ -133,7 +133,7 @@ widget_html.NestedMenu <- function(id, style, class, ...){
 #'         items = list(
 #'           usa = list(
 #'             name = "USA",
-#' 		   icon = "fa-flag-usa",
+#' 		         icon = "fa-flag-usa",
 #'             items = list(
 #'               chicago = list(name = "Chicago"),
 #'               newyork = list(name = "New York")
